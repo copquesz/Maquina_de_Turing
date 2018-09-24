@@ -40,13 +40,12 @@ public class Turing {
 	public void isValido(String param, int contador) {
 		System.err.println("\nÍndice Inválido: " + contador + "\nCaracter: " + param + "\n");
 	}
-	
+
 	public boolean isFim(int contador, int tamanho) {
-		
-		if(contador < tamanho) {
+
+		if (contador < tamanho) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -481,34 +480,8 @@ public class Turing {
 			fita[contador] = aux;
 			moveDireita();
 
-			System.out.println("Lê " + aux + " -> Substitui por " + aux + " - > Move para Direita -> Entra em q16");
-
-			q16();
-		}
-
-		else if (aux.equals("#")) {
-
-			fita[contador] = "#";
-			moveEsquerda();
-
-			System.err.println("\nNúmero digitado inválido!\n");
-		}
-
-		else {
-			isValido(aux, contador);
-		}
-
-	}
-
-	private void q16() {
-		aux = fita[contador];
-		if (aux.equals("0") || aux.equals("1") || aux.equals("2") || aux.equals("3") || aux.equals("4")
-				|| aux.equals("5") || aux.equals("6") || aux.equals("7") || aux.equals("8") || aux.equals("9")) {
-
-			fita[contador] = aux;
-			moveDireita();
-
-			System.out.println("Lê " + aux + " -> Substitui por " + aux + " - > Move para Direita -> Move para o estado Final");
+			System.out.println(
+					"Lê " + aux + " -> Substitui por " + aux + " - > Move para Direita -> Move para o estado Final");
 
 			fim();
 		}
@@ -538,13 +511,11 @@ public class Turing {
 			System.err.println("\nNúmero digitado inválido! Excesso de caracteres\n");
 		}
 
-		
 		else {
-			if(isFim(contador, fita.length)) {
+			if (isFim(contador, fita.length)) {
 				System.out.println("Máquina de Turing finalizada. Número Aceito!");
-			}
-			else {
-				isValido(aux, contador);
+			} else {
+				System.out.println("ué");
 			}
 		}
 
