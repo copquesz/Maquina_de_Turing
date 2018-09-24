@@ -6,7 +6,7 @@ public class Turing {
 	private int contador;
 	private String fita[];
 	private String cadeia, aux;
-	private String tipo;
+	private String tipo, local;
 
 	public Turing(String numero) {
 		System.out.println("Iniciando Máquina de Turing\nNúmero digitado: " + numero);
@@ -86,7 +86,7 @@ public class Turing {
 			fita[contador] = aux;
 			moveDireita();
 
-			tipo = "Ligação Internacional";
+			local = "Ligação Internacional";
 			
 			System.out.println("Lê " + aux + " -> Substitui por " + aux + " -> Move para Direita -> Entra em q2");
 
@@ -99,33 +99,35 @@ public class Turing {
 			fita[contador] = aux;
 			moveDireita();
 			
+			local = "Ligação Local";
+			
 			switch (aux) {
 			case "1":
-				tipo = "Ligação para a Região Parasiense.";
+				tipo = " para a Região Parasiense.";
 				break;
 			case "2":
-				tipo = "Ligação para o Nordeste da França e Dependências do Oceano Índico.";
+				tipo = " para o Nordeste da França e Dependências do Oceano Índico.";
 				break;
 			case "3":
-				tipo = "Ligação para o Nordeste da França.";
+				tipo = " para o Nordeste da França.";
 				break;
 			case "4":
-				tipo = "Ligação para o Sudeste da França.";
+				tipo = " para o Sudeste da França.";
 				break;
 			case "5":
-				tipo = "Ligação para o Sudoeste da França e Dependências do Oceano Atlântico.";
+				tipo = " para o Sudoeste da França e Dependências do Oceano Atlântico.";
 				break;
 			case "6":
-				tipo = "Ligação para Telefonia Móvel.";
+				tipo = " para Telefonia Móvel.";
 				break;
 			case "7":
-				tipo = "Ligação para Telefonia Móvel e Aparelhos M2M.";
+				tipo = " para Telefonia Móvel e Aparelhos M2M.";
 				break;
 			case "8":
-				tipo = "Ligação Gratuita ou Custo Compartilhado.";
+				tipo = " Gratuita ou Custo Compartilhado.";
 				break;
 			case "9":
-				tipo = "Ligação não Geográfica.";
+				tipo = " não Geográfica.";
 				break;
 
 			default:
@@ -299,6 +301,39 @@ public class Turing {
 
 			fita[contador] = aux;
 			moveDireita();
+			
+			switch (aux) {
+			case "1":
+				tipo = " para a Região Parasiense.";
+				break;
+			case "2":
+				tipo = " para o Nordeste da França e Dependências do Oceano Índico.";
+				break;
+			case "3":
+				tipo = " para o Nordeste da França.";
+				break;
+			case "4":
+				tipo = " para o Sudeste da França.";
+				break;
+			case "5":
+				tipo = " para o Sudoeste da França e Dependências do Oceano Atlântico.";
+				break;
+			case "6":
+				tipo = " para Telefonia Móvel.";
+				break;
+			case "7":
+				tipo = " para Telefonia Móvel e Aparelhos M2M.";
+				break;
+			case "8":
+				tipo = " Gratuita ou Custo Compartilhado.";
+				break;
+			case "9":
+				tipo = " não Geográfica.";
+				break;
+
+			default:
+				break;
+			}
 
 			System.out.println("Lê " + aux + " -> Substitui por " + aux + " - > Move para Direita -> Entra em q8");
 
@@ -550,7 +585,7 @@ public class Turing {
 		else {
 			if (isFim(contador, fita.length)) {
 				System.out.println("Máquina de Turing finalizada. Número Aceito!");
-				System.err.println("\nTipo de Ligação: " + tipo + "\n");
+				System.err.println("\nTipo de Ligação: " + local + " " + tipo + "\n");
 			} else {
 				System.out.println("Opps, ocorreu um erro!");
 			}
